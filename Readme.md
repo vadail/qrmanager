@@ -1,4 +1,7 @@
 ![QR Manager logo](http://chart.apis.google.com/chart?cht=qr&chs=120x120&chld=L&choe=UTF-8&chl=http%3A%2F%2Fqrmanager.es)
+# QR MANAGER
+
+## Description
 
   QR Manager makes the administration and management of your QR Codes simple and powerful.
 
