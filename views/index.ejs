@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.qrcode.js"></script>
+	<script type="text/javascript" src="/javascripts/qrcode.js"></script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p>Render in table</p>
+	<div id="qrcodeTable"></div>
+	<p>Render in canvas</p>
+	<div id="qrcodeCanvas"></div>
+	<script>
+		//jQuery('#qrcode').qrcode("this plugin is great");
+		jQuery('#qrcodeTable').qrcode({
+			width: 75,
+			height: 75,
+			render	: "table",
+			text	: "http://Çr.es"
+		});	
+		jQuery('#qrcodeCanvas').qrcode({
+			width: 75,
+			height: 75,
+			text	: "http://Çr.es"
+		});	
+	</script>
+  </body>
+</html>
+
+
