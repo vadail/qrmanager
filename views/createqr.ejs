@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>QR Manager API</title>
+  </head>
+  <body>
+    <section>
+      <h1>Create QR</h1>
+      <p>
+        /qrs<br>
+        /qrs/:id
+      </p>
+    </section>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+    jQuery.post("/api/qrs", {
+  "_id": "12aASd13",
+  "folder": "Default",
+  "url": "http://Çr.com/12aASd13",
+  "targets": [
+    {
+      "country": "es",
+      "platform": "android",
+      "url": "https://play.google.com/store/apps/details?id=com.bbva.bbvacontigo"
+    },
+    {
+      "country": "es",
+      "platform": "iphone",
+      "url": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=325813155"
+    },
+    {
+      "country": "es",
+      "platform": "ipod",
+      "url": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=325813155"
+    },
+    {
+      "country": "es",
+      "platform": "ipad",
+      "url": "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=452988069"
+    },
+    {
+      "country": "es",
+      "platform": "blackberry",
+      "url": "http://appworld.blackberry.com/webstore/content/53268"
+    },
+    {
+      "country": "es",
+      "platform": "windowsphone",
+      "url": "http://www.windowsphone.com/es-es/store/app/bbva-es/35d0835f-4cdb-df11-a844-00237de2db9e"
+    },
+    {
+      "country": "any",
+      "platform": "any",
+      "url": "http://www.bbvamovil.es/"
+    }
+  ]
+}, function(data, textStatus, jqXHR) {
+    console.log("Post resposne:"); console.dir(data); console.log(textStatus); console.dir(jqXHR);
+});
+    </script>
+  </body>
+</html>
