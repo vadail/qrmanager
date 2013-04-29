@@ -28,6 +28,8 @@ exports.create = function(req, res){
   qr.save(function(err) {
     if (!err) {
       console.log("created");
+      qr.url="www.Çr.es/"+qr._id;
+      qr.save();
       return res.send(qr);
     } else {
       console.log(err);

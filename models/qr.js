@@ -6,7 +6,7 @@ var Target = new Schema({
     country: String, 
     platform: {
         type: String,
-        enum: ['android', 'iphone', 'ipad', 'ipod', 'ios', 'blackberry', 'windowsphone', 'desktop', 'any']
+        enum: ['android', 'iphone', 'ipad', 'ios', 'blackberry', 'windowsphone', 'desktop', 'any']
     },
     url: String
 });  

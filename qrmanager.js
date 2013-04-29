@@ -4,7 +4,6 @@
 var express = require('express')
   , routes = require('./routes')
   , pages = require('./routes/pages')
-  , user = require('./routes/user')
   , qr = require('./routes/qr')
   , http = require('http')
   , path = require('path')
@@ -40,7 +39,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/createqr', pages.createqr);
 app.get('/getqrs', pages.getqrs);
-app.get('/users', user.list);
+app.get('/qrs/:id', pages.getqr);
 
 // Route QRs
 

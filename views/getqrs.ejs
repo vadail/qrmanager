@@ -27,8 +27,6 @@
         //console.log(textStatus);
         //console.dir(jqXHR);
 
-        console.log(data[0].url);
-
         for(var i=0;i<data.length;i++){
 
           var targets = "<ol>";
@@ -39,10 +37,9 @@
 
           var targets=targets+"</ol>";
 
-          console.log(targets);
           var listQRs = $('#qrcodelist').html();
 
-          $('#qrcodelist').html(listQRs+'<tr><td><div id="qr'+i+'"></div></td><td>'+data[i].url+'<br>'+targets+'</td><td style="float:left"><button type="button" class="btn btn-success" style="border-bottom-left-radius: 10px;border-top-right-radius: 10px;margin: 10px;">Editar</button><button type="button" class="btn btn-danger" style="border-bottom-left-radius: 10px;border-top-right-radius: 10px;margin: 10px;">Borrar</button></td></tr>');
+          $('#qrcodelist').html(listQRs+'<tr><td><div id="qr'+i+'"></div></td><td>'+data[i].url+'<br>'+targets+'</td><td style="float:left"><button type="button" class="btn btn-success" style="margin: 10px;">Editar</button><button onclick="borrar(\''+data[i]._id+'\')" type="button" class="btn btn-danger" style="margin: 10px;">Borrar</button></td></tr>');
         
         }
 
@@ -50,6 +47,7 @@
           jQuery('#qr'+i+'').qrcode({
             width: 75,
             height: 75,
+            correctLevel  : QRErrorCorrectLevel.M,
             text  : data[i].url
           });
         }
@@ -57,6 +55,12 @@
 
     });
 
+  </script>
+  <script type="text/javascript">
+    function borrar(id){
+      alert("/api/qrs/"+id);
+      jQuery.ajax({url: "/api/qrs/"+id, type: "DELETE", success: function (data, textStatus, jqXHR) { document.location.reload(true) }})
+    }
   </script>
   </body>
 </html>

@@ -1,0 +1,2 @@
+node qrmanager.js
+pause

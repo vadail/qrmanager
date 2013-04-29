@@ -1,52 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>QR Manager API</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="/javascripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/javascripts/jquery.qrcode.js"></script>
-    <script type="text/javascript" src="/javascripts/qrcode.js"></script>
-  </head>
-  <body>
-    <section>
-      <h1>Create QR</h1>
-      <p>
-        /qrs<br>
-        /qrs/:id
-      </p>
-    </section>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script>
-    jQuery.post("/api/qrs", {
-  "_id": "12aASd13",
-  "folder": "Default",
-  "url": "http://localhost:3000/getqrs/qrs/12aASd13",
-  "targets": [
+<head>
+  <meta charset="utf-8">
+  <title>QR Manager API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/javascripts/jquery.qrcode.js"></script>
+  <script type="text/javascript" src="/javascripts/qrcode.js"></script>
+</head>
+<body>
+  <section>
+    <h1>Create QR</h1>
+    <form>
+      <fieldset>
+        <legend>QR Form</legend>
+      <label>Country</label>
+        <select>
+          <option>Any</option>
+          <option>Spain</option>
+          <option>Mexico</option>
+          <option>USA</option>
+          <option>Perú</option>
+          <option>Colombia</option>
+          <option>Puerto Rico</option>
+        </select>
+
+        <label>Platform</label>
+          <select>
+            <option>Any</option>
+            <option>Android</option>
+            <option>iPhone</option>
+            <option>iPad</option>
+            <option>Blackberry</option>
+            <option>WindowsPhone</option>
+          </select>
+
+        <label>URL</label>
+          <input type="text" placeholder="http://www...">
+<br>
+          <button class="btn btn-danger" type="button">Delete</button>
+          <button class="btn btn-primary" type="button">Add target</button>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+      </fieldset>
+    </form>
+  </section>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>
+  jQuery.post("/api/qrssss", {
+    "_id": "12aASd13",
+    "folder": "Default",
+    "url": "",
+    "targets": [
     {
-      "country": "es",
+      "country": "any",
       "platform": "android",
       "url": "https://play.google.com/store/apps/details?id=com.bbva.bbvacontigo"
     },
     {
       "country": "es",
-      "platform": "iphone",
-      "url": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=325813155"
-    },
-    {
-      "country": "es",
-      "platform": "ipod",
-      "url": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=325813155"
-    },
-    {
-      "country": "es",
       "platform": "ipad",
       "url": "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=452988069"
+    },
+    {
+      "country": "es",
+      "platform": "ios",
+      "url": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=325813155"
     },
     {
       "country": "es",
@@ -59,14 +83,19 @@
       "url": "http://www.windowsphone.com/es-es/store/app/bbva-es/35d0835f-4cdb-df11-a844-00237de2db9e"
     },
     {
+      "country": "us",
+      "platform": "any",
+      "url": "http://www.bbvacompass.com/"
+    },
+    {
       "country": "any",
       "platform": "any",
       "url": "http://www.bbvamovil.es/"
     }
-  ]
-}, function(data, textStatus, jqXHR) {
+    ]
+  }, function(data, textStatus, jqXHR) {
     console.log("Post resposne:"); console.dir(data); console.log(textStatus); console.dir(jqXHR);
-});
-    </script>
-  </body>
+  });
+</script>
+</body>
 </html>
