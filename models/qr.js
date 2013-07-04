@@ -18,4 +18,4 @@ var QRSchema = new Schema({
 });  
   
 //Export the schema  
-module.exports = mongoose.model('QR', QRSchema);  
+module.exports = mongoose.model('qrs', QRSchema);

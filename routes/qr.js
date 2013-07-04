@@ -17,7 +17,8 @@ exports.list = function(req, res){
 exports.create = function(req, res){
   
   console.log("POST: ");
-  console.log(req);
+  //console.log(req);
+  console.log(req.body);
   
   var qr = new qrmodel({
     folder: req.body.folder,

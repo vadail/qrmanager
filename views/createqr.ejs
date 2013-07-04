@@ -16,11 +16,11 @@
 <body>
   <section>
     <h1>Create QR</h1>
-    <form>
+    <form  name="qr_form" id="qr_form">
       <fieldset>
         <legend>QR Form</legend>
       <label>Country</label>
-        <select>
+        <select name="country_select" id="country_select">
           <option>Any</option>
           <option>Spain</option>
           <option>Mexico</option>
@@ -31,7 +31,7 @@
         </select>
 
         <label>Platform</label>
-          <select>
+          <select name="platform_select" id="platform_select">
             <option>Any</option>
             <option>Android</option>
             <option>iPhone</option>
@@ -41,7 +41,7 @@
           </select>
 
         <label>URL</label>
-          <input type="text" placeholder="http://www...">
+          <input type="text" placeholder="http://www..." name="url_input" id="url_input">
 <br>
           <button class="btn btn-danger" type="button">Delete</button>
           <button class="btn btn-primary" type="button">Add target</button>
@@ -52,6 +52,36 @@
   </section>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script>
+
+  $('#qr_form').submit(function() {
+
+    var jsonRequest = {}; //declare JsonRequest
+    var jsonTargets = []; //declare Targets
+
+    for (var i = 0; i < $('#country_select').length; i++) {
+      country_select = $('#country_select')[i];
+      platform_select = $('#platform_select')[i];
+      url_input = $('#url_input')[i];
+      country=country_select.options[country_select.selectedIndex].value;
+      platform=platform_select.options[platform_select.selectedIndex].value.toLowerCase();
+      url=url_input.value.toLowerCase();
+      console.log(country);
+      console.log(platform);
+      console.log(url);
+      jsonTargets.push({"country": country, "platform": platform, "url": url});
+    
+    };
+
+    jsonRequest = {"_id": "12aASd13", "folder": "Default","url": "","targets":jsonTargets};
+
+    jQuery.post("/api/qrs",jsonRequest, function(data, textStatus, jqXHR) {
+    console.log("Post resposne:"); console.dir(data); console.log(textStatus); console.dir(jqXHR);
+  });
+
+    return false;
+  });
+
+/*
   jQuery.post("/api/qrssss", {
     "_id": "12aASd13",
     "folder": "Default",
@@ -95,7 +125,7 @@
     ]
   }, function(data, textStatus, jqXHR) {
     console.log("Post resposne:"); console.dir(data); console.log(textStatus); console.dir(jqXHR);
-  });
+  });*/
 </script>
 </body>
 </html>
