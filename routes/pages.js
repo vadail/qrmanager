@@ -3,7 +3,7 @@ var http = require('http'),
 qrmodel = require('../models/qr');  
 
 exports.createqr = function(req, res){
-	res.render('createqr', { title: 'QR Manager' });
+	res.render('createqr', { title: 'QR Manager',id: '13Sdfcd4' });
 };
 
 exports.getqrs = function(req, res){
