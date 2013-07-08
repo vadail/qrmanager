@@ -12,6 +12,7 @@ var Target = new Schema({
 });  
 
 var QRSchema = new Schema({  
+    _id: String,  
     folder: String,  
     url: String,  
     targets: [Target]

@@ -3,7 +3,9 @@ var http = require('http'),
 qrmodel = require('../models/qr');  
 
 exports.createqr = function(req, res){
-	res.render('createqr', { title: 'QR Manager',id: '13Sdfcd4' });
+	var now = new Date(); 
+	var id = Math.floor(Math.random() * 10) + parseInt(now.getTime()).toString(36).toUpperCase();
+	res.render('createqr', { title: 'QR Manager',id: id });
 };
 
 exports.getqrs = function(req, res){

@@ -19,18 +19,19 @@ exports.create = function(req, res){
   console.log("POST: ");
   //console.log(req);
   console.log(req.body);
+  var url = "www.Çr.es/"+req.body._id;
+  console.log(url);
   
   var qr = new qrmodel({
+    _id: req.body._id,
     folder: req.body.folder,
-    url: req.body.url,
+    url: url,
     targets: req.body.targets
   });
 
   qr.save(function(err) {
     if (!err) {
       console.log("created");
-      qr.url="www.Çr.es/"+qr._id;
-      qr.save();
       return res.send(qr);
     } else {
       console.log(err);
